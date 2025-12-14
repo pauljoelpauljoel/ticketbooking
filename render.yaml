@@ -1,0 +1,27 @@
+services:
+  # Backend
+  - type: web
+    name: bookmyflix-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: PORT
+        value: 5002
+
+  # Frontend
+  - type: web
+    name: bookmyflix-frontend
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./client/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: bookmyflix-backend
+          property: url
