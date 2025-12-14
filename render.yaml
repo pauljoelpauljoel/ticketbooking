@@ -9,16 +9,15 @@ services:
     envVars:
       - key: MONGO_URI
         sync: false
-      - key: PORT
-        value: 5002
 
   # Frontend
   - type: web
     name: bookmyflix-frontend
     env: static
     plan: free
+    rootDir: client
     buildCommand: npm install && npm run build
-    staticPublishPath: ./client/dist
+    staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
         fromService:

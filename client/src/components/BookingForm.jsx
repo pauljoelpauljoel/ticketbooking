@@ -14,11 +14,7 @@ const BookingForm = ({ isOpen, onClose, movie }) => {
     }
 
     try {
-<<<<<<< HEAD
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/bookings`, {
-=======
-      const response = await fetch('http://localhost:5000/api/bookings', {
->>>>>>> 887e81aef3effe6474c13df518c45146359e65c6
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,12 +39,7 @@ const BookingForm = ({ isOpen, onClose, movie }) => {
       }
     } catch (error) {
       console.error('Booking Error:', error);
-<<<<<<< HEAD
-      console.log('Attempted URL:', `${import.meta.env.VITE_API_URL}/api/bookings`);
-      alert('❌ Network Error: Could not connect to server. Check console for details.');
-=======
-      alert('❌ flexible Error: Could not connect to server.');
->>>>>>> 887e81aef3effe6474c13df518c45146359e65c6
+      alert('❌ Network Error: Could not connect to server.');
     }
   };
 
