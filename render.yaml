@@ -17,10 +17,7 @@ services:
     plan: free
     rootDir: client
     buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: bookmyflix-backend
-          property: url
+        value: https://movie-ticket-booking-g35g.onrender.com/
